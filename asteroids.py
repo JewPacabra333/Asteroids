@@ -8,8 +8,7 @@ class Asteroid(CircleShape):
         super().__init__(x, y, radius)
 
     def draw(self, screen):
-        pygame.draw.circle(screen, "white", self.position.center(), self.radius, 2)
-
+        pygame.draw.circle(screen, "white", self.position, self.radius, 2)
     def update(self, dt):
         self.position += self.velocity * dt
 
@@ -17,7 +16,7 @@ import random
 from collections.abc import Callable
 
 import pygame
-from asteroid import Asteroid
+from asteroids import Asteroid
 from constants import *
 
 Edge = tuple[pygame.Vector2, Callable[[float], pygame.Vector2]]
