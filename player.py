@@ -4,6 +4,8 @@ from constants import LINE_WIDTH
 from constants import PLAYER_TURN_SPEED
 from circleshape import CircleShape
 from constants import PLAYER_SPEED
+from shot import Shot
+from constants import PLAYER_SHOOT_SPEED
 
 
 
@@ -12,6 +14,9 @@ class Player(CircleShape):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0
     
+    def shoot(self):
+        shot = Shot(self.position.x, self.position.y)
+        shot.velocity = pygame.Vector2(0, 1).rotate(self.rotation) * PLAYER_SHOOT_SPEED
     
     def triangle(self) -> list[pygame.Vector2]:
         forward = pygame.Vector2(0, 1).rotate(self.rotation)

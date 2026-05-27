@@ -3,6 +3,8 @@ from circleshapes import CircleShape
 from constants import SHOT_RADIUS
 
 class Shot(CircleShape):
+    containers: tuple[pygame.sprite.Group, ...]
+    
     def __init__(self, x, y):
         super().__init__(x, y, SHOT_RADIUS)
 
